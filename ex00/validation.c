@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   columns.c                                          :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wong koon wei <wkoon-we@student.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 23:10:11 by wong koon w       #+#    #+#             */
-/*   Updated: 2026/04/17 23:10:11 by wong koon w      ###   ########.fr       */
+/*   Created: 2026/04/18 08:56:41 by wong koon w       #+#    #+#             */
+/*   Updated: 2026/04/18 08:56:41 by wong koon w      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-void	valid(int *sample);
-
-void	column(int *top, int *bottom)
+void	valid(int *sample)
 {
-	valid(top);
-    valid(bottom);
+    int	i;
+	int	start;
 
-    // int	column[1][4];
-    // int	i;
-    // int	clues;
-
-    // i = 0;
-    // clues = 0;
-    // while (i < 4)
-    // {
-	// 	if ((top[i] == 4 && bottom[i] != 1) || (top[i] == 3 && bottom[i] != 2))
-    //     {
-    //         write(1, "Error\n", 1);
-    //     }
-    //     i ++;
-    // }
-
+	i = 1;
+	start = 0;
+    while (start < 2)
+    {
+        if (i == 4)
+        {
+            start ++;
+            i = start + 1;
+        }
+        if (sample[start] != 2)
+        {
+            if (sample[start] == sample[i])
+                write(1, "Error\n", 6);
+        }
+        i ++;
+    }
 }

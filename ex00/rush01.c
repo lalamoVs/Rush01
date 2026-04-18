@@ -12,35 +12,33 @@
 
 #include <unistd.h>
 
-void	row(char *left, char *right);
-void	column(char *top, char *bottom);
+void	row(int *left, int *right);
+void	column(int *top, int *bottom);
+void	combines(int **combine);
 
-int	main(int argc, char **argv)
+void	rush01(char **input)
 {
 	int		i;
 	int		count;
-	char	array1[4];
-	char	array2[4];
+	int		combine[2][4];
 
 	i = 0;
 	count = 0;
-	if (argc > 1)
+	while (count < 4)
 	{
-		while (i < 24)
-		{
-			array1[count] = argv[1][i];
-			array2[count] = argv[1][i + 8];
-			if (i == 6)
-			{
-				column(array1, array2);
-                i = 16;
-				count = 0;
-			}
-			if (i == 22)
-				row(array1, array2);
-			i += 2;
-			count += 1;
-		}
+		combine[0][count] = input[1][i] - '0';
+		combine[1][count] = input[1][i + 8] - '0';
+		i += 2;
+		count ++;
 	}
-	return (0);
+	column(combine[0], combine[1]);
+	count = 0;
+	while (count < 4)
+	{
+		combine[0][count] = input[1][i + 8] - '0';
+		combine[1][count] = input[1][i + 16] - '0';
+		i += 2;
+		count ++;
+	}
+	row(combine[0], combine[1]);
 }

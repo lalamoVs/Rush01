@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   columns.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wong koon wei <wkoon-we@student.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 23:10:11 by wong koon w       #+#    #+#             */
-/*   Updated: 2026/04/17 23:10:11 by wong koon w      ###   ########.fr       */
+/*   Created: 2026/04/18 10:30:11 by wong koon w       #+#    #+#             */
+/*   Updated: 2026/04/18 10:30:11 by wong koon w      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-void	valid(int *sample);
+void    rush01(char **input);
 
-void	column(int *top, int *bottom)
+int	main(int argc, char **argv)
 {
-	valid(top);
-    valid(bottom);
-
-    // int	column[1][4];
-    // int	i;
-    // int	clues;
-
-    // i = 0;
-    // clues = 0;
-    // while (i < 4)
-    // {
-	// 	if ((top[i] == 4 && bottom[i] != 1) || (top[i] == 3 && bottom[i] != 2))
-    //     {
-    //         write(1, "Error\n", 1);
-    //     }
-    //     i ++;
-    // }
-
+	if (argc > 1)
+	{
+        rush01(argv);
+	}
+	return (0);
 }

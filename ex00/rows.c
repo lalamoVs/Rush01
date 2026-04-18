@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	row(char *left, char *right)
+void	valid(int *sample);
+
+void	row(int *left, int *right)
 {
-    write(1, "Row: ", 5);
-	write(1, &right[2], 1);
-    write(1, "\n", 1);
+    valid(left);
+    valid(right);
 }
